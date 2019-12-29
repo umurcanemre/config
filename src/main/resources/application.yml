@@ -1,0 +1,30 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: config
+  profiles: local
+  cloud:
+    config:
+      server:
+        git:
+          uri: /mnt/sda3/eclipse-workspace/configfiles_local_dev
+          refreshRate: 300 # in seconds
+          cloneOnStart: true #eager file loading
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8999/eureka/
+
+---
+spring:
+  profiles: development
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/umurcanemre/configfiles_local_dev
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://172.17.0.1:8999/eureka/
