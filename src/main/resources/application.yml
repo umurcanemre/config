@@ -3,14 +3,16 @@ server:
 spring:
   application:
     name: config
-  profiles: local
+  profiles: local, default
   cloud:
     config:
       server:
         git:
-          uri: /mnt/sda3/eclipse-workspace/configfiles_local_dev
+          uri: /mnt/Shared/workspace/java/equivalent-project/configfiles_local_dev
           refreshRate: 300 # in seconds
           cloneOnStart: true #eager file loading
+      discovery:
+        enabled: true
 eureka:
   client:
     serviceUrl:
